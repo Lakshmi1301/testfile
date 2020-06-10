@@ -15,10 +15,10 @@ public class baseclass {
 	public static WebDriver driver;
 	 public static void launchBrowser() {
 			
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Vimal\\eclipse-workspace\\BaseClass\\driver\\chromedriver.exe");
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--disable-notifications");
-			driver=new ChromeDriver(options);
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Vimal\\eclipse-workspace\\Seleniumday1\\newdriver\\chromedriver.exe");
+			WebDriver driver = new ChromeDriver();
+			
+			
 		    }
 		    
 	 public static void loadUrl(String url) {
@@ -42,7 +42,7 @@ public  static  String getData(String ColumnName) throws SQLException
 		
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 	    connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","HR","12345");
-		String sql="select * from fb;";
+		String sql="select * from fb";
 		PreparedStatement prepareStatement = connection.prepareStatement(sql);
 		ResultSet resultSet = prepareStatement.executeQuery();
 		while(resultSet.next())
@@ -61,7 +61,7 @@ public  static  String getData(String ColumnName) throws SQLException
 	{
 		connection.close();
 	}
-	return ColumnName;
+	return txt;
 }
 
 

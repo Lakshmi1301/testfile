@@ -18,20 +18,21 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 public class jdbcConnectionfb extends baseclass{
-public static void main(String[] args) throws SQLException,ClassNotFoundException {
-		WebDriverManager.chromedriver().setup();
-		launchBrowser();
-
-	loadUrl("https://www.facebook.com/");
-	windowMax();
-	WebElement fn = driver.findElement(By.xpath("//input[@type='email']"));
+public static void main(String[] args) throws SQLException,ClassNotFoundException,NullPointerException {
+	System.setProperty("webdriver.chrome.driver","C:\\Users\\Vimal\\eclipse-workspace\\Seleniumday1\\newdriver\\chromedriver.exe");
+	WebDriver driver= new ChromeDriver();
+    driver.get("https://www.facebook.com/");
+	driver.manage().window().maximize();
+	WebElement fn = driver.findElement(By.id("email"));
 	String data = getData("email");
+	System.out.println(data);
 	fn.sendKeys(data);
-	WebElement fl = driver.findElement(By.xpath("(//input[@class='inputtext login_form_input_box'])[2]"));
+	WebElement fl = driver.findElement(By.id("pass"));
 	String data1 = getData("password");
-    fl.sendKeys(data1);
+	System.out.println(data1);
+    fl.sendKeys(getData("password"));
 
-	WebElement e = driver.findElement(By.xpath("//input[@type='submit']"));
+	WebElement e = driver.findElement(By.id("u_0_b"));
 	e.click();
 	
 	
